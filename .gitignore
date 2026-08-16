@@ -2,7 +2,11 @@
 .idea/
 .vscode/
 
-# Flutter
+# 微信小程序本地开发配置（不要提交个人 AppID / IDE 配置）
+apps/miniprogram/project.private.config.json
+apps/miniprogram/**/project.private.config.json
+
+# Flutter historical prototype
 apps/mobile/.dart_tool/
 apps/mobile/.flutter-plugins*
 apps/mobile/build/
