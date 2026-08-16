@@ -10,7 +10,7 @@
 ## 当前工程决策
 
 - **正式前端：微信小程序。默认采用微信原生小程序 + TypeScript。**
-- 如前端团队已有成熟 Taro / uni-app 工程体系，可在技术评审后替换实现层，但不能改变“正式产品是微信小程序”的平台决策。
+- 如前端团队已有成熟 Taro / uni-app 工程体系，可在 M0 技术评审后替换实现层；一旦决定必须更新本文件并冻结，不在同一正式前端混用多套框架。
 - `apps/miniprogram` 为正式前端目录；`apps/mobile` 旧 Flutter 工程进入历史参考状态，不再承载新增正式业务。
 - 服务端、BFF、任务 Worker 和共享契约继续使用 TypeScript。
 - PostgreSQL 是业务真源，对象存储保存媒体和大文本。
@@ -31,13 +31,38 @@
 - 采集爆款是首页高优先级入口。
 - 脚本生成坚持“源内容 × 方向 × 开头 × 口吻”，用户少量选择，而非开放式 AI 聊天作为主流程。
 
-## 冲突裁决顺序
+## 冲突裁决规则
 
-发生冲突时按以下顺序：
+不要用一条模糊的总排序让“技术文档覆盖产品交互”或“页面规格覆盖范围优先级”。按冲突类型分别裁决：
 
-`本文件当前决策 > v1-scope-freeze.md > 当前 product/technical 文档 > page-specification.md > 历史 APK/Flutter Demo > V1.2 旧架构说明 > V1.1 修改方案 > V1.0 初始资料`
+### A. 产品范围 / P0-P1-P2 冲突
+
+`本文件当前决策 > v1-scope-freeze.md > product-requirements.md > page-specification.md > user-flows.md > 历史资料`
+
+**范围冻结优先于页面规格。** 页面规格可以描述 P1/P2 的目标形态，但不能因此把它自动升级为 P0。
+
+### B. 页面层级 / 交互细节冲突
+
+`本文件固定产品决策 > product-requirements.md > page-specification.md > user-flows.md > acceptance-and-release.md > 历史 Demo`
+
+验收文档只验证已经冻结的行为，不应创造新的产品需求。
+
+### C. API / 数据 / 技术实现冲突
+
+`本文件工程决策 > architecture.md / api-contract.md / data-model.md > packages/contracts > 当前代码骨架`
+
+当前代码如果与冻结契约冲突，应修代码；**不能因为旧代码已经存在就反过来改需求**。
+
+### D. 当前完成度判断
+
+以 `current-implementation-status.md` 为准。文档里出现一个目标模块，不代表代码已经实现。
+
+### E. 历史 Demo
+
+`reference/demo-v1.0`、旧 APK、`apps/mobile` Flutter 原型永远是最低优先级参考，不能覆盖正式小程序需求。
 
 ## 变更规则
 
 - 任何会改变正式平台、TabBar、核心闭环、V1范围或数据真源的决定，必须先修改本文件并通过评审。
-- 不允许研发凭历史 Demo 或聊天截图覆盖当前仓库真源。
+- 不允许研发凭历史 Demo、旧代码或聊天截图覆盖当前仓库真源。
+- 技术上发现不可行时，应先提交问题/PR修改真源，再调整实现，不静默偏离。
