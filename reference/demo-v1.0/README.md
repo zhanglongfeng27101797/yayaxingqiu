@@ -2,7 +2,7 @@
 
 > ⚠️ **禁止把本目录当成正式开发基线。** 正式产品是微信小程序，产品与研发真源在 `docs/`；正式前端目录是 `apps/miniprogram/`。
 
-本目录来自产品负责人曾在安卓手机上体验的 `芽芽星球工作台-demo-v1.0.apk`。APK 本质为 Android WebView 包装的 HTML/CSS/JavaScript Demo，本目录保留其可读前端资源，方便前端理解早期页面气质、卡片密度和交互意图。
+本目录来自产品负责人曾在安卓手机上体验的 `芽芽星球工作台-demo-v1.0.apk`。APK 本质为 Android WebView 包装的 HTML/CSS/JavaScript Demo。本目录只归档**适合安全参考的页面容器与样式**，并把旧 JS 中已确认的问题整理为反例；不建议把整份旧 JS 直接复制进正式工程。
 
 ## 可以参考什么
 
@@ -31,9 +31,10 @@
 
 ## 文件说明
 
-- `legacy-webview/index.html`：旧 WebView 页面容器；
-- `legacy-webview/styles.css`：旧 Demo 样式；
-- `legacy-webview/app.js`：旧 Demo 页面/交互 Mock；
+- `legacy-webview/index.html`：从旧 APK 提取的 WebView 页面容器；
+- `legacy-webview/styles.css`：从旧 APK 提取的 Demo 样式，可用于理解早期视觉密度；
+- `legacy-webview/KNOWN_ISSUES.md`：旧 JS 的关键错误逻辑与反例说明；
+- **完整旧 `app.js` 不作为正式可复用源码入仓**，避免开发误把已知错误逻辑继续迁移。若确需做历史考古，应从原 APK 单独提取，不得直接进入正式小程序实现。
 - 图片等二进制资源不作为研发真源，缺失不影响需求理解。
 
 ## 冲突时看哪里
