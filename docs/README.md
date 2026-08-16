@@ -1,73 +1,32 @@
-# 文档中心｜微信小程序 V1
+# 文档中心｜芽芽星球微信小程序
 
-> 新同事不要只看某一份 PRD 或某一个代码目录。**范围、交互、技术和完成度分别有对应真源。**
+## 公司研发同事先看
 
-## 最先看
+这次交接先看产品，不要求照产品侧技术草案写代码。
 
-1. [来源与架构决策](delivery/source-and-decisions.md)：冲突时谁优先；
-2. [V1 范围冻结](delivery/v1-scope-freeze.md)：P0/P1/P2 和明确不做；
-3. [当前实现状态](delivery/current-implementation-status.md)：哪些代码真的已经有，哪些只是骨架/规划。
+1. [完整产品需求](handoff/01-完整产品需求.md)
+2. [完整页面规格](product/page-specification.md)
+3. [用户流程与页面地图](product/user-flows.md)
+4. [历史页面 Demo 参考](../reference/demo-v1.0/README.md)
+5. [需求全量核对表](handoff/05-需求全量核对表.md)
 
-## 产品
+## 产品资料
 
-- [产品需求](product/product-requirements.md)
+- [产品需求摘要](product/product-requirements.md)
 - [完整页面规格](product/page-specification.md)
 - [用户流程与页面地图](product/user-flows.md)
 
-## 技术
-
-- [系统架构](technical/architecture.md)
-- [微信小程序平台边界](technical/wechat-platform-boundaries.md)
-- [数据模型](technical/data-model.md)
-- [API 契约](technical/api-contract.md)
-
-## 研发交付
-
-- [V1 范围冻结](delivery/v1-scope-freeze.md)
-- [当前实现状态](delivery/current-implementation-status.md)
-- [研发需求与分工](delivery/requirements-and-ownership.md)
-- [测试、发布与验收](delivery/acceptance-and-release.md)
-- [来源与决策记录](delivery/source-and-decisions.md)
-
 ## 历史参考
 
-- [`reference/demo-v1.0`](../reference/demo-v1.0/README.md)：旧 APK/WebView Demo 的页面样式和已知错误，只供参考；
-- [`apps/mobile`](../apps/mobile/README.md)：旧 Flutter 工程骨架，只作历史原型。
+- [`reference/demo-v1.0`](../reference/demo-v1.0/README.md)：旧 APK/WebView Demo，只参考视觉、卡片密度和早期交互；
+- [`apps/mobile`](../apps/mobile/README.md)：旧 Flutter 工程，仅为历史原型。
 
-以上两类**都不是正式前端开发入口**。
+历史资料不能覆盖当前产品需求。
 
-## 阅读顺序
+## 其他技术资料
 
-### 前端
+仓库仍保留系统架构、数据模型、API、研发分工等历史/草案资料，供研发需要时参考。
 
-1. 来源与架构决策
-2. V1 范围冻结
-3. 产品需求
-4. 完整页面规格
-5. 用户流程
-6. 微信小程序平台边界
-7. API 契约
-8. 当前实现状态
-9. 测试与验收
+**这些不是这次产品交接的必读材料，也不代表要求公司前端/后端必须采用其中的框架、数据库或接口实现方式。**
 
-### 后端
-
-1. 来源与架构决策
-2. V1 范围冻结
-3. 系统架构
-4. 数据模型
-5. API 契约
-6. 当前实现状态
-7. 用户流程
-8. 研发分工
-
-## 当前正式工程方向
-
-- 正式产品：**微信小程序**。
-- 正式前端目录：`apps/miniprogram`；当前只有入口说明，真实工程待 M0 初始化。
-- `apps/mobile` 中旧 Flutter 工程仅为历史原型，不作为正式前端技术路线。
-- `services/api` 当前是 TypeScript/Fastify 工程骨架，部分路由为 Mock/空数据/503，不能按“文件存在”判断完成。
-- `services/worker` 是目标目录，当前尚未初始化真实 Worker。
-- 数据库、对象存储、微信登录、平台解析、ASR、AI 生成/拆解均需按当前架构正式实现。
-
-发生冲突时，以 [来源与架构决策](delivery/source-and-decisions.md) 的**分类型冲突裁决规则**为准。
+研发只要基于当前完整产品需求和页面 Demo，拆解出合理实现即可。
