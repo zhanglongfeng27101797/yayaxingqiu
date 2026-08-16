@@ -2,11 +2,20 @@
 .idea/
 .vscode/
 
-# Android local/build files
-android-demo/.android-sdk/
-android-demo/signing/
-android-demo/manual-build*/
-android-demo/app/outputs/
-android-demo/app/build/
-android-demo/.gradle/
+# Flutter
+apps/mobile/.dart_tool/
+apps/mobile/.flutter-plugins*
+apps/mobile/build/
+apps/mobile/android/local.properties
+apps/mobile/ios/Pods/
+
+# TypeScript
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+# Credentials and signing files
 *.keystore
+*.jks

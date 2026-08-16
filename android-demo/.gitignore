@@ -1,4 +1,0 @@
-.android-sdk/
-manual-build*/
-signing/
-app/outputs/apk/debug/*.idsig
