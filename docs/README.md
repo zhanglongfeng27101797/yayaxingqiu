@@ -7,7 +7,7 @@
 1. [完整产品需求](handoff/01-完整产品需求.md)
 2. [完整页面规格](product/page-specification.md)
 3. [用户流程与页面地图](product/user-flows.md)
-4. [历史页面 Demo 参考](../reference/demo-v1.0/README.md)
+4. [页面 Demo](../reference/page-demo/README.md)
 5. [需求全量核对表](handoff/05-需求全量核对表.md)
 
 ## 产品资料
