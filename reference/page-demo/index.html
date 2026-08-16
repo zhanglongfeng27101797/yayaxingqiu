@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>芽芽星球工作台｜页面 Demo</title>
+<style>
+:root{--green:#198b69;--green2:#e9f6f0;--ink:#1f2d28;--muted:#74817c;--bg:#f6f9f7;--line:#e4ebe7;--orange:#fff1e7;--purple:#f0edff;--blue:#eaf3ff;--shadow:0 10px 28px rgba(33,76,58,.08)}
+*{box-sizing:border-box}body{margin:0;background:#eef3f0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}.shell{max-width:430px;min-height:100vh;margin:0 auto;background:var(--bg);position:relative;box-shadow:0 0 40px rgba(25,60,45,.12)}
+.page{display:none;padding:18px 16px 92px}.page.active{display:block}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.brand{font-size:13px;color:var(--green);font-weight:800}.demo{font-size:11px;background:var(--orange);color:#9b6543;padding:6px 9px;border-radius:999px}.hero{padding:18px;border-radius:24px;background:linear-gradient(135deg,#eaf8f1,#fff8ed);border:1px solid #edf2ef}.hero h1{font-size:24px;margin:0 0 6px}.hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}.section{margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.section-head h2{font-size:18px;margin:0}.link{font-size:12px;color:var(--green)}.card{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.topic-main{padding:16px;background:linear-gradient(145deg,#fff,#f0faf5)}.stars{font-size:13px;color:#e99b30;font-weight:800}.topic-main h3{font-size:19px;margin:8px 0}.reason{font-size:13px;line-height:1.65;color:#55665f}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:#f1f5f3;color:#5d6e67}.tag.green{background:var(--green2);color:var(--green)}.tag.purple{background:var(--purple);color:#7161c4}.tag.orange{background:var(--orange);color:#ac653c}.btn{border:0;border-radius:13px;padding:11px 15px;font-weight:750}.btn.primary{background:var(--green);color:white}.btn.soft{background:var(--green2);color:var(--green)}.btn.gray{background:#f1f4f2;color:#5d6b66}.row{display:flex;gap:10px;align-items:center}.grow{flex:1}.mini-topics{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.mini-topic{padding:12px}.mini-topic strong{font-size:13px;display:block}.mini-topic span{font-size:11px;color:var(--muted);display:block;margin-top:5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);padding:13px 0}.stat{text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{font-size:18px;display:block}.stat span{font-size:10px;color:var(--muted);display:block;margin-top:5px}
+.tool-main{padding:15px;border:1.5px solid #cde8db}.tool-main h3{margin:0 0 4px}.tool-main p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:10px}.tool{padding:13px;display:flex;gap:10px;align-items:center}.ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:12px;font-weight:850;background:var(--green2);color:var(--green)}.ico.orange{background:var(--orange);color:#ae643b}.ico.purple{background:var(--purple);color:#705ec3}.ico.blue{background:var(--blue);color:#487fb8}.tool strong{font-size:13px}.tool small{display:block;font-size:10px;color:var(--muted);margin-top:3px}.draft{padding:13px}.draft h3{font-size:14px;margin:0 0 4px}.draft p{font-size:11px;color:var(--muted);margin:0}.academy{padding:14px;background:linear-gradient(135deg,#fff,#f3efff)}
+.search{height:45px;border-radius:14px;border:1px solid var(--line);background:white;display:flex;align-items:center;padding:0 13px;color:#97a19d;font-size:13px}.topic-list{display:grid;gap:9px}.topic-card{padding:13px}.topic-card h3{font-size:14px;margin:5px 0 6px}.topic-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}.meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px}.pill{font-size:10px;padding:4px 7px;border-radius:999px;background:#f2f5f3;color:#65736d}.panel{padding:15px}.panel h3{font-size:15px;margin:0 0 9px}.choices{display:grid;gap:8px}.choice{padding:11px;border-radius:13px;background:#f6f8f7;border:1px solid var(--line);font-size:12px}.choice.selected{border-color:#76bca2;background:#eff9f4;color:var(--green);font-weight:700}.tones{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tone{padding:10px;border-radius:12px;background:#f4f6f5;font-size:12px;text-align:center}.tone.selected{background:var(--green2);color:var(--green);font-weight:800}
+.bench-top{padding:14px}.tabs{display:flex;gap:7px;margin:11px 0;overflow:auto}.tabchip{white-space:nowrap;font-size:11px;padding:7px 10px;border-radius:999px;background:#eaf0ed;color:#66746e}.tabchip.active{background:var(--green);color:white}.bench-list{display:grid;gap:8px}.bench{display:grid;grid-template-columns:72px 1fr;gap:11px;padding:11px}.cover{height:82px;border-radius:13px;background:linear-gradient(145deg,#e6f5ed,#fff0dc);display:grid;place-items:center;font-size:12px;color:#668277;font-weight:800}.bench h3{font-size:13px;margin:4px 0 6px;line-height:1.4}.nums{display:flex;gap:9px;font-size:10px;color:var(--muted);margin-top:7px}.learn{display:flex;gap:5px;margin-top:7px}.learn span{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--purple);color:#6d5cba}
+.problem-grid{display:flex;gap:7px;flex-wrap:wrap}.problem{font-size:11px;padding:8px 10px;border-radius:999px;background:#edf1ef;color:#66746e}.problem.active{background:var(--green);color:white}.recommend{padding:15px;background:linear-gradient(135deg,#fff,#eff9f4)}.learning-list{display:grid;gap:8px}.learning{padding:13px}.learning b{display:block;font-size:13px;margin-bottom:4px}.learning span{font-size:10px;color:var(--muted)}
+.profile{padding:15px;display:flex;gap:12px;align-items:center}.avatar{width:50px;height:50px;border-radius:18px;background:linear-gradient(135deg,#d9f0e5,#f4eaff);display:grid;place-items:center;color:var(--green);font-weight:900}.profile h3{margin:0 0 4px}.profile p{margin:0;color:var(--muted);font-size:11px}.menu{display:grid;gap:8px}.menu-item{padding:14px;display:flex;justify-content:space-between;align-items:center}.menu-item b{font-size:13px}.menu-item span{font-size:11px;color:#9aa4a0}
+.nav{position:fixed;max-width:430px;margin:auto;left:0;right:0;bottom:0;height:72px;padding-bottom:max(6px,env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);z-index:20}.nav button{border:0;background:transparent;color:#8a9590;font-size:10px;display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center}.nav button span{width:29px;height:26px;border-radius:10px;display:grid;place-items:center;font-size:10px;font-weight:900}.nav button.active{color:var(--green);font-weight:800}.nav button.active span{background:var(--green2)}
+.note{font-size:11px;color:var(--muted);line-height:1.6;padding:12px;border:1px dashed #cfdad5;border-radius:13px;background:#fbfdfc}.spacer{height:8px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<section class="page active" data-page="home">
+  <div class="top"><div class="brand">芽芽星球工作台</div><div class="demo">演示版·示例数据</div></div>
+  <div class="hero"><h1>晚上好，小雨妈妈</h1><p>今天不用想太多，先挑一条最适合你的内容拍起来。</p></div>
+
+  <div class="section">
+    <div class="section-head"><h2>今天值得拍</h2><span class="link">换一批</span></div>
+    <div class="card topic-main">
+      <div class="stars">★★★★★ 值得拍</div>
+      <h3>宝宝睡觉总哼唧，需要管吗？</h3>
+      <div class="tags"><span class="tag green">睡眠</span><span class="tag">判断解惑</span><span class="tag orange">简单拍</span></div>
+      <p class="reason">这个问题很多新手妈妈都会搜，而且很适合用真实观察和生活场景来讲。</p>
+      <button class="btn primary">我想拍</button>
+    </div>
+    <div class="mini-topics">
+      <div class="card mini-topic"><strong>第一次加辅食，顺序别弄反</strong><span>★★★★☆ · 流程清单</span></div>
+      <div class="card mini-topic"><strong>宝宝夜醒频繁，要先看什么</strong><span>★★★★☆ · 判断解惑</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>本月创作简报</h2><span class="link">待绑定</span></div>
+    <div class="card stats"><div class="stat"><strong>6</strong><span>本月发布</span></div><div class="stat"><strong>3.2k</strong><span>累计点赞</span></div><div class="stat"><strong>5</strong><span>连续创作天</span></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>常用工具</h2><span class="link">创作效率</span></div>
+    <div class="card tool-main"><div class="row"><div class="ico">采</div><div class="grow"><h3>采集一个刚刚刷到的爆款</h3><p>点击后再粘贴链接，保存到你的对标库并开始拆解。</p></div><button class="btn soft">采集</button></div></div>
+    <div class="tools">
+      <div class="card tool"><div class="ico purple">拆</div><div><strong>视频拆解</strong><small>分析结构与学习点</small></div></div>
+      <div class="card tool"><div class="ico orange">净</div><div><strong>去水印</strong><small>高频工具入口</small></div></div>
+      <div class="card tool"><div class="ico blue">提</div><div><strong>提词器</strong><small>打开最近一篇稿</small></div></div>
+      <div class="card tool"><div class="ico">字</div><div><strong>提取逐字稿</strong><small>链接转文字</small></div></div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><h2>继续创作</h2><span class="link">我的创作</span></div><div class="card draft"><h3>第一次加辅食，顺序比吃多少更重要</h3><p>对标二创 · 18 分钟前更新</p><div class="row" style="margin-top:10px"><button class="btn soft">继续编辑</button><button class="btn gray">去提词</button></div></div></div>
+  <div class="section"><div class="section-head"><h2>芽芽星球商学苑</h2><span class="link">更多</span></div><div class="card academy"><div class="tag purple">运营精选</div><h3 style="margin:9px 0 5px">为什么你的前 3 秒总留不住人？</h3><p class="reason">从开头场景、具体问题和表达方式三个点快速检查。</p></div></div>
+</section>
+
+<section class="page" data-page="creation">
+  <div class="top"><div class="brand">创作</div><div class="demo">选题 → 脚本</div></div>
+  <div class="search">搜索你想拍的内容（展示搜索框时必须真的能搜）</div>
+  <div class="section"><div class="section-head"><h2>推荐选题</h2><span class="link">我的创作</span></div><div class="topic-list">
+    <div class="card topic-card"><div class="stars">★★★★★ 值得拍</div><h3>宝宝睡觉总哼唧，需要管吗？</h3><p>问题明确、场景具体，适合普通宝妈用真实观察来讲。</p><div class="meta"><span class="pill">判断解惑</span><span class="pill">简单</span><span class="pill">医疗风险：中</span></div></div>
+    <div class="card topic-card"><div class="stars">★★★☆☆ 可以改</div><h3>宝宝出现这些表现，是不是缺某种营养？</h3><p>有需求，但普通宝妈直接讲容易太专业，建议改成真实经历切口。</p><div class="meta"><span class="pill">帮我改成适合宝妈拍</span></div></div>
+  </div></div>
+  <div class="section"><div class="section-head"><h2>创作设置示意</h2><span class="link">少量选择</span></div><div class="card panel"><h3>1. 这条想怎么讲</h3><div class="choices"><div class="choice selected">判断解惑 · 推荐</div><div class="choice">经验复盘</div><div class="choice">避坑纠错</div></div><h3 style="margin-top:16px">2. 你更喜欢哪个开头</h3><div class="choices"><div class="choice selected">我家宝宝有段时间一睡觉就哼唧，我后来才知道先看这三件事。</div><div class="choice">宝宝睡觉总哼唧，很多妈妈第一反应其实都做反了。</div><div class="choice">睡觉哼唧要不要管，不要先猜，先看宝宝这几个状态。</div></div><button class="btn gray" style="margin-top:9px">换一组（必须出现新 3 句）</button><h3 style="margin-top:16px">3. 你想怎么说</h3><div class="tones"><div class="tone selected">自然聊天</div><div class="tone">真实经验</div><div class="tone">清楚专业</div><div class="tone">有点冲突</div></div><button class="btn primary" style="width:100%;margin-top:14px">生成我的版本</button></div></div>
+</section>
+
+<section class="page" data-page="benchmark">
+  <div class="top"><div class="brand">对标</div><div class="demo">第 3 个 Tab</div></div>
+  <div class="card bench-top"><div class="row"><div class="ico">采</div><div class="grow"><strong>粘贴链接采集爆款</strong><div style="font-size:11px;color:var(--muted);margin-top:4px">采集后进入“我的采集”，可继续拆解和二创</div></div><button class="btn soft">采集</button></div></div>
+  <div class="tabs"><div class="tabchip active">全部</div><div class="tabchip">我的采集</div><div class="tabchip">芽芽精选</div></div>
+  <div class="note">列表要高密度，一屏尽量多条；“我的采集”只放用户自己采集的内容，历史迁移内容不能混入。</div>
+  <div class="section bench-list">
+    <div class="card bench"><div class="cover">封面</div><div><div class="stars">★★★★★</div><h3>第一次加辅食，很多妈妈第一步就弄反了</h3><div class="meta"><span class="pill">流程清单</span><span class="pill">我的采集</span></div><div class="nums"><span>播 12w</span><span>赞 8500</span><span>藏 4200</span><span>评 630</span></div><div class="learn"><span>场景具体</span><span>结构好模仿</span></div></div></div>
+    <div class="card bench"><div class="cover">封面</div><div><div class="stars">★★★★☆</div><h3>宝宝夜醒别先怪睡眠倒退，先排这三个原因</h3><div class="meta"><span class="pill">判断解惑</span><span class="pill">芽芽精选</span></div><div class="nums"><span>播 8.6w</span><span>赞 6200</span><span>藏 3100</span></div><div class="learn"><span>开头直接</span><span>问题明确</span></div></div></div>
+    <div class="card bench"><div class="cover">封面</div><div><div class="stars">★★★☆☆</div><h3>历史采集内容示例</h3><div class="meta"><span class="pill">历史快照</span><span class="pill">仅在全部显示</span></div><div class="nums"><span>数据需标采集时间</span></div></div></div>
+  </div>
+  <div class="section"><div class="section-head"><h2>拆解详情应该有什么</h2></div><div class="card panel"><div class="choices"><div class="choice">一句话看懂</div><div class="choice">为什么值得学</div><div class="choice">开头为什么抓人</div><div class="choice">内容结构 + 3 个学习点</div><div class="choice selected">逐字稿节选 / 展开全文</div><div class="choice">二创提醒</div></div><button class="btn primary" style="width:100%;margin-top:12px">变成我的版本</button></div></div>
+</section>
+
+<section class="page" data-page="growth">
+  <div class="top"><div class="brand">成长</div><div class="demo">倒数第二</div></div>
+  <div class="hero"><h1>芽芽星球商学苑</h1><p>不只是课程，也会持续上架分享、回放、运营精选、平台规则和带货经验。</p></div>
+  <div class="section"><div class="section-head"><h2>你现在最想解决什么</h2></div><div class="problem-grid"><div class="problem active">不知道拍什么</div><div class="problem">不会写脚本</div><div class="problem">不会拍视频</div><div class="problem">流量起不来</div><div class="problem">想开始带货</div></div></div>
+  <div class="section"><div class="section-head"><h2>为你推荐</h2></div><div class="card recommend"><div class="tag purple">运营精选</div><h3 style="margin:9px 0 5px">不会写脚本时，先别急着让 AI 一键生成</h3><p class="reason">先定方向、开头和口吻，写出来才更像你自己。</p></div></div>
+  <div class="section"><div class="section-head"><h2>商学苑内容</h2></div><div class="learning-list"><div class="card learning"><b>系统课程｜新手怎么找到第一批能拍的选题</b><span>课程</span></div><div class="card learning"><b>本周分享｜宝妈账号前 3 秒怎么留人</b><span>内部分享 / 回放</span></div><div class="card learning"><b>本周母婴爆款复盘</b><span>运营精选</span></div><div class="card learning"><b>平台规则更新：这些表达要注意</b><span>平台规则</span></div></div></div>
+  <div class="section note">成长页不做作业、打卡、积分、排行榜、强制 Level，也不出现陪跑老师 / 专属运营老师。</div>
+</section>
+
+<section class="page" data-page="profile">
+  <div class="top"><div class="brand">我的</div><div class="demo">账号与资产</div></div>
+  <div class="card profile"><div class="avatar">芽</div><div><h3>小雨妈妈</h3><p>育儿经验 · 辅食 · 宝宝 8 个月</p></div></div>
+  <div class="section menu">
+    <div class="card menu-item"><b>我的创作</b><span>统一稿件库 ›</span></div>
+    <div class="card menu-item"><b>账号管理 / 添加账号</b><span>基础信息 ›</span></div>
+    <div class="card menu-item"><b>创作资料</b><span>昵称 · 方向 · 宝宝年龄 ›</span></div>
+    <div class="card menu-item"><b>我的权益</b><span>›</span></div>
+    <div class="card menu-item"><b>消息与通知</b><span>›</span></div>
+    <div class="card menu-item"><b>帮助与反馈</b><span>›</span></div>
+    <div class="card menu-item"><b>设置</b><span>›</span></div>
+    <div class="card menu-item"><b>关于</b><span>›</span></div>
+  </div>
+  <div class="section note">这里不出现“项目负责人：隆隆老师”、阿欣老师、专属运营老师或陪跑服务入口。V1 的账号管理也不等于必须接抖音深度 OAuth / 创作中心深层指标。</div>
+</section>
+
+<nav class="nav">
+  <button class="active" data-target="home"><span>首</span>首页</button>
+  <button data-target="creation"><span>创</span>创作</button>
+  <button data-target="benchmark"><span>标</span>对标</button>
+  <button data-target="growth"><span>学</span>成长</button>
+  <button data-target="profile"><span>我</span>我的</button>
+</nav>
+</div>
+<script>
+const buttons=[...document.querySelectorAll('.nav button')];
+const pages=[...document.querySelectorAll('.page')];
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  buttons.forEach(x=>x.classList.remove('active'));
+  pages.forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelector(`[data-page="${btn.dataset.target}"]`).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+</script>
+</body>
+</html>
