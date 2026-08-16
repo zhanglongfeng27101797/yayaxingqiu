@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Android local/build files
+android-demo/.android-sdk/
+android-demo/signing/
+android-demo/manual-build*/
+android-demo/app/outputs/
+android-demo/app/build/
+android-demo/.gradle/
+*.keystore
